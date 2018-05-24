@@ -1,0 +1,24 @@
+<div class="container-fluid">
+  <div class="row">
+    <button class="btn btn-primary" (click)="goBack();">Back</button>
+  </div>
+</div>
+<div class="jumbotron" *ngFor="let session of sessionDetail">
+  <div>
+    <h3>Speaker: {{session.fullName}} 
+      <span *ngIf="session.rating">
+        (<i>Rated: {{session.rating}}</i>) 
+      </span>
+    </h3>
+    <div class="profile-picture">
+        <img [src]="session.profilePicture" alt="{{session.fullName}}">
+    </div>
+    <p>
+      <b>Bio:</b> {{session.bio}}
+    </p>
+    <p>
+      <b>Tagline:</b> {{session.tagLine}}
+    </p>
+    <app-rate [speaker]="session.fullName" (rated)="ratedSession($event, session);"></app-rate>
+  </div>
+</div>

@@ -1,0 +1,12 @@
+<h1 align="center">Sessions
+  <span>({{sessions.length || 0}})</span>
+</h1>
+
+<div class="grid-container">
+  <div class="grid-item" *ngFor="let session of sessions" routerLink="/session-details/{{session.id}}">
+    <h3>
+      {{session.name}}
+    </h3>
+  </div>
+
+</div>
